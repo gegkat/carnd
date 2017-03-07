@@ -102,6 +102,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 I found that the keys to success in this project were to be disciplined and systematic when making adjustments and to focus on the training data, not the model architecture. I found that the NVIDIA model architecture performed well out of the box and needed not modifications. This architecture had no issue underfitting my data and I could avoid overfitting by training for only 3 epochs.  
 
 ![alt text][image1]
+Source: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
 
 ####3. Creation of the Training Set & Training Process
 
