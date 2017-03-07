@@ -111,6 +111,10 @@ Next I added samples for the left and right cameras with a steering correction f
 
 To counteract the leftward bias, I added a mirror image of all of the images to the data set. Now I had 6 times the original data set with 25176 samples. Training on this data set corrected the bias but the vehicle failed to turn sharply enough on the two sharpest turns of the track. 
 
+![alt text][image2]
+
+![alt text][image3]
+
 To finally achieve a complete run of the track I had to make two final adjustments. First I added more training data specifically of the two sharpest turns by recording driving of just these turns 3 times each, being careful to take the turns sharply. Second I tried to remove some bias towards straight driving by removing 40% of image samples with a steering angle less than 0.03. With this data set, the network learned to successfully complete the track. 
 
 ####4. Lessons Learned
