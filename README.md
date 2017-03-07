@@ -102,6 +102,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 I found that the keys to success in this project were to be disciplined and systematic when making adjustments and to focus on the training data, not the model architecture. I found that the NVIDIA model architecture performed well out of the box and needed not modifications. This architecture had no issue underfitting my data and I could avoid overfitting by training for only 3 epochs.  
 
 ![alt text][image1]
+
 Source: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
 
 ####3. Creation of the Training Set & Training Process
@@ -115,3 +116,9 @@ Next I added samples for the left and right cameras with a steering correction f
 To counteract the leftward bias, I added a mirror image of all of the images to the data set. Now I had 6 times the original data set with 25176 samples. Training on this data set corrected the bias but the vehicle failed to turn sharply enough on the two sharpest turns of the track. 
 
 To finally achieve a complete run of the track I had to make two final adjustments. First I added more training data specifically of the two sharpest turns by recording driving of just these turns 3 times each, being careful to take the turns sharply. Second I tried to remove some bias towards straight driving by removing 40% of image samples with a steering angle less than 0.03. With this data set, the network learned to successfully complete the track. 
+
+####4. Lessons Learned
+
+I found that the most difficult aspect of this project was the fact that a low error in the training and validation data sets did not necessarily translate to good performance on the track. Training a neural network is inherently a trial and error process. To optimize your network you must have a fast and informative feedback loop between making adjustments and your desired results. 
+
+If I were to do this project again I would like to construct a better validation test. The current validation test is run the simulator in autonomous mode from the beginning of the track and evaluate the performance by human observation. Instead of this I would set up a series of short tests, breaking up the track into sections. I would have the simulator run for a short predefined time and then compare the position of the car at the end of the test with the ideal position of the car. Then I would score each section based on the distance from the ideal position. This way I could more easily and quickly keep track of how each adjustment effected the actual performance of the car. I believe this would have greatly helped the convergence rate of the iterative process of designing the neural net. 
